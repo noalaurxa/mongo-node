@@ -3,11 +3,7 @@ import Post from "../models/Post.js";
 class PostRepository {
 
     async create(post) {
-        return await Post.create({
-            ...post,
-            createdAt: new Date(),
-            updatedAt: new Date()
-        });
+        return await Post.create(post);
     }
 
     async findAll() {
@@ -25,10 +21,7 @@ class PostRepository {
     async update(postId, postData) {
         return await Post.findByIdAndUpdate(
             postId,
-            {
-                ...postData,
-                updatedAt: new Date()
-            },
+            postData,
             { new: true }
         );
     }

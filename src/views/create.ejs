@@ -59,11 +59,22 @@
               <label for="imageUrl">URL de la Imagen</label>
             </div>
 
-            <!-- USER ID (IMPORTANTE) -->
+            <!-- SELECT USUARIO (CORRECTO) -->
             <div class="input-field">
               <i class="material-icons prefix">person</i>
-              <input id="userId" type="text" name="userId" required>
-              <label for="userId">ID del Usuario</label>
+
+              <select name="userId" required>
+                <option value="" disabled selected>Selecciona un usuario</option>
+
+                <% users.forEach(user => { %>
+                  <option value="<%= user._id %>">
+                    <%= user.name %> <%= user.lastName %>
+                  </option>
+                <% }) %>
+
+              </select>
+
+              <label>Usuario</label>
             </div>
 
           </div>
@@ -88,6 +99,14 @@
 
   <!-- Materialize JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <!-- ACTIVAR SELECT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+    });
+  </script>
 
 </body>
 </html>

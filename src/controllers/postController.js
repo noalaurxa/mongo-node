@@ -1,4 +1,5 @@
 import postService from "../services/postService.js";
+import userRepository from "../repositories/userRepository.js";
 
 class PostController {
 
@@ -26,7 +27,12 @@ class PostController {
     }
 
     async showCreateForm(req, res) {
-        res.render("create");
+        try {
+            const users = await userRepository.findAll(); // 🔥 CLAVE
+            res.render("create", { users });
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
     }
 
     async showEditForm(req, res) {
@@ -35,7 +41,9 @@ class PostController {
 
             if (!post) return res.status(404).send("Post no encontrado");
 
-            res.render("edit", { post });
+            const users = await userRepository.findAll(); // opcional pero PRO
+            res.render("edit", { post, users });
+
         } catch (error) {
             res.status(500).send(error.message);
         }
