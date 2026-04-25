@@ -1,4 +1,4 @@
-# 📱 Social Media App (Node.js + MongoDB + EJS)
+# Social Media App (Node.js + MongoDB + EJS)
 
 Aplicación tipo red social donde los usuarios pueden crear, editar y eliminar posts con imágenes, contenido y hashtags.
 
@@ -23,12 +23,24 @@ Aplicación tipo red social donde los usuarios pueden crear, editar y eliminar p
 - Relación entre posts y usuarios (populate)
 - Manejo de imagen con fallback si la URL falla
 
+## 🧠 Estructura del proyecto
+
+- /models → Modelos de MongoDB
+- /repositories → Acceso a datos
+- /services → Lógica de negocio
+- /controllers → Controladores
+- /views → Vistas EJS
+- /public → Archivos estáticos
+
 ---
 ## 📷 Capturas del proyecto
 
 ### 🏠 Página principal
 
 <img width="674" height="330" alt="image" src="https://github.com/user-attachments/assets/44ef7b39-2dde-4b47-a8d6-8523917e2015" />
+
+### Feed
+
 <img width="678" height="613" alt="image" src="https://github.com/user-attachments/assets/bfe9ab11-5554-4f17-8369-14757d943b97" />
 
 ### ➕ Crear post
@@ -38,4 +50,6 @@ Aplicación tipo red social donde los usuarios pueden crear, editar y eliminar p
 ### ✏️ Editar post
 
 <img width="668" height="572" alt="image" src="https://github.com/user-attachments/assets/9a3ea701-2521-46fb-a8c7-6aa885aa4de7" />
+
+
 
