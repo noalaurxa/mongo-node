@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Post</title>
+
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <!-- Iconos -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="grey lighten-4">
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-wrapper teal">
+      <a href="/" class="brand-logo center">Social Media</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <h4 class="center-align">Editar Post</h4>
+
+    <div class="row">
+      <form action="/posts/update/<%= post._id %>" method="POST" class="col s12">
+
+        <div class="card">
+          <div class="card-content">
+
+            <!-- Título -->
+            <div class="input-field">
+              <i class="material-icons prefix">title</i>
+              <input id="title" type="text" name="title" value="<%= post.title %>" required minlength="5" maxlength="30">
+              <label class="active" for="title">Título del Post</label>
+            </div>
+
+            <!-- Contenido -->
+            <div class="input-field">
+              <i class="material-icons prefix">description</i>
+              <textarea id="content" class="materialize-textarea" name="content" required minlength="10"><%= post.content %></textarea>
+              <label class="active" for="content">Contenido</label>
+            </div>
+
+            <!-- Hashtags -->
+            <div class="input-field">
+              <i class="material-icons prefix">tag</i>
+              <input id="hashtags" type="text" name="hashtags" value="<%= post.hashtags ? post.hashtags.join(',') : '' %>">
+              <label class="active" for="hashtags">Hashtags</label>
+            </div>
+
+            <!-- Imagen -->
+            <div class="input-field">
+              <i class="material-icons prefix">image</i>
+              <input id="imageUrl" type="text" name="imageUrl" value="<%= post.imageUrl %>">
+              <label class="active" for="imageUrl">URL de la Imagen</label>
+            </div>
+
+          </div>
+
+          <!-- Botones -->
+          <div class="card-action center-align">
+
+            <button type="submit" class="btn waves-effect waves-light teal">
+              <i class="material-icons left">save</i> Actualizar
+            </button>
+
+            <a href="/posts" class="btn grey">
+              Cancelar
+            </a>
+
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
